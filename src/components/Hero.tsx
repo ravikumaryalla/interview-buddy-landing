@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { config } from '../config';
 
 export default function Hero() {
@@ -33,25 +34,15 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <div className='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4'>
-          <a
-            href='#pricing'
+          <Link
+            to='/login'
             className='w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-semibold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-violet-200 hover:shadow-violet-300 hover:-translate-y-0.5'
           >
             Start Free Trial
-            <svg
-              className='w-4 h-4'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                d='M13 7l5 5m0 0l-5 5m5-5H6'
-              />
+            <svg className='w-4 h-4' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={2}>
+              <path strokeLinecap='round' strokeLinejoin='round' d='M13 7l5 5m0 0l-5 5m5-5H6' />
             </svg>
-          </a>
+          </Link>
           {/* <a
             href="#demo"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-800 font-semibold px-8 py-3.5 rounded-xl border border-gray-200 transition-all hover:-translate-y-0.5 shadow-sm"

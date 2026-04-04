@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { config } from '../config';
 
 const plans = [
@@ -181,8 +182,8 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <a
-                  href="#"
+                <Link
+                  to="/login"
                   className={`mt-auto block text-center font-semibold text-sm py-3 rounded-xl transition-all ${
                     plan.highlighted
                       ? 'bg-white text-violet-700 hover:bg-violet-50 shadow-lg'
@@ -190,7 +191,7 @@ export default function Pricing() {
                   }`}
                 >
                   {plan.cta}
-                </a>
+                </Link>
               </div>
             </div>
           ))}
