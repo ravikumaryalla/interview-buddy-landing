@@ -21,6 +21,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/login" element={<Login />} />
         <Route path="/pay" element={<Pay />} />
         <Route path="/payment-result" element={<PaymentResult />} />
+        <Route path="/payment/success" element={<PaymentResult />} />
+        <Route path="/payment/failed" element={<PaymentResult />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

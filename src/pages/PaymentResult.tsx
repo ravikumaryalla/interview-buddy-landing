@@ -17,7 +17,7 @@ export default function PaymentResult() {
   const [searchParams] = useSearchParams();
   const [status, setStatus] = useState<Status>('verifying');
 
-  const orderId = searchParams.get('order_id');
+  const orderId = searchParams.get('orderId') ?? searchParams.get('order_id');
 
   useEffect(() => {
     if (!orderId) {
