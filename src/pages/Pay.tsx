@@ -12,8 +12,15 @@ export default function Pay() {
 
   const sessionId = searchParams.get('session');
   const orderId = searchParams.get('order');
+  const token = searchParams.get('token');
 
   useEffect(() => {
+    // Persist the token in sessionStorage so PaymentResult can use it after
+    // Cashfree redirects back (the query string won't survive the redirect)
+    if (token) {
+      sessionStorage.setItem('ib_payment_token', token);
+    }
+
     if (!sessionId) {
       setErrorMsg('No payment session found. Please go back and try again.');
       setStatus('error');

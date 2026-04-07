@@ -5,8 +5,9 @@ import { config } from '../config';
 type Status = 'verifying' | 'redirecting' | 'error';
 
 interface VerifyResponse {
-  status: 'PAID' | 'ACTIVE' | 'EXPIRED' | 'CANCELLED' | 'FAILED' | 'PENDING' | string;
-  plan?: string;
+  success: boolean;
+  balance?: number;
+  message?: string;
 }
 
 function redirectToApp(outcome: 'success' | 'failed', orderId: string) {
@@ -25,13 +26,26 @@ export default function PaymentResult() {
       return;
     }
 
+    // Retrieve the access token stored by the /pay page before Cashfree redirected
+    const token = sessionStorage.getItem('ib_payment_token');
+
+    if (!token) {
+      setStatus('error');
+      return;
+    }
+
     let cancelled = false;
 
     async function verify() {
       try {
-        const res = await fetch(
-          `${config.api.url}/payment/verify?order_id=${encodeURIComponent(orderId!)}`,
-        );
+        const res = await fetch(`${config.api.url}/api/billing/verify`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ orderId }),
+        });
 
         if (cancelled) return;
 
@@ -46,10 +60,10 @@ export default function PaymentResult() {
 
         setStatus('redirecting');
 
-        const outcome =
-          data.status === 'PAID' || data.status === 'ACTIVE' ? 'success' : 'failed';
+        // Clean up token from sessionStorage
+        sessionStorage.removeItem('ib_payment_token');
 
-        redirectToApp(outcome, orderId!);
+        redirectToApp(data.success ? 'success' : 'failed', orderId!);
       } catch {
         if (!cancelled) setStatus('error');
       }
