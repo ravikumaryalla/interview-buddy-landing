@@ -2,6 +2,9 @@
 // Import from this file instead of reading import.meta.env directly.
 
 export const config = {
+  api: {
+    url: import.meta.env.VITE_API_URL ?? 'https://api.interviewbuddy.ai',
+  },
   app: {
     name: import.meta.env.VITE_APP_NAME ?? 'Interview Buddy',
     tagline: import.meta.env.VITE_APP_TAGLINE ?? 'AI-Powered Interview Preparation Platform',
