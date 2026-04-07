@@ -7,6 +7,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy.tsx'
 import TermsOfService from './pages/TermsOfService.tsx'
 import RefundPolicy from './pages/RefundPolicy.tsx'
 import Login from './pages/Login.tsx'
+import Pay from './pages/Pay.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/pay" element={<Pay />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
