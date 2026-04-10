@@ -36,7 +36,7 @@ function PolicyCard({ icon, title, desc }: { icon: string; title: string; desc: 
 }
 
 export default function RefundPolicy() {
-  const { app, contact, policy, pricing } = config;
+  const { app, contact, policy } = config;
 
   return (
     <LegalLayout title="Refund Policy" lastUpdated={policy.lastUpdated}>
