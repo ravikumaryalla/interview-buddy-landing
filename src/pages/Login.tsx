@@ -22,23 +22,24 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-violet-50 flex flex-col">
+    <div className="min-h-screen bg-[#0a0a0f] flex flex-col">
       {/* Top bar */}
-      <div className="border-b border-gray-100 bg-white/80 backdrop-blur-md">
+      <div className="border-b border-[#1e1e30] bg-[#080810]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-lg flex items-center justify-center">
-              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            <div className="w-8 h-8 bg-gradient-to-br from-[#00d4ff] to-[#8b5cf6] rounded-lg flex items-center justify-center glow-cyan-sm">
+              <svg className="w-4 h-4 text-[#0a0a0f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <span className="font-bold text-gray-900 text-base group-hover:text-violet-600 transition-colors">
+            <span className="font-bold text-[#f0f0ff] text-base group-hover:text-[#00d4ff] transition-colors">
               {config.app.name}
             </span>
           </Link>
           <Link
             to="/"
-            className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-violet-600 transition-colors"
+            className="flex items-center gap-1.5 text-sm text-[#a0a0b8] hover:text-[#00d4ff] transition-colors"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -53,22 +54,22 @@ export default function Login() {
         <div className="w-full max-w-md">
 
           {/* Card */}
-          <div className="bg-white border border-gray-100 rounded-2xl shadow-xl shadow-gray-100/80 p-8 sm:p-10">
+          <div className="glass-card border-[#1e1e30] rounded-2xl shadow-2xl p-8 sm:p-10">
 
             {/* Header */}
             <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-2xl mb-4 shadow-lg shadow-violet-200">
-                <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-[#00d4ff] to-[#8b5cf6] rounded-2xl mb-4 glow-cyan-sm">
+                <svg className="w-7 h-7 text-[#0a0a0f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
-              <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Welcome back</h1>
-              <p className="text-sm text-gray-500 mt-1">Sign in to your {config.app.name} account</p>
+              <h1 className="text-2xl font-bold text-[#f0f0ff] tracking-tight">Welcome back</h1>
+              <p className="text-sm text-[#a0a0b8] mt-1">Sign in to your {config.app.name} account</p>
             </div>
 
             {/* Error alert */}
             {error && (
-              <div className="flex items-start gap-3 bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 mb-6 text-sm">
+              <div className="flex items-start gap-3 bg-red-500/10 border border-red-500/30 text-red-400 rounded-xl px-4 py-3 mb-6 text-sm">
                 <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
@@ -80,11 +81,11 @@ export default function Login() {
             <form onSubmit={handleSubmit} noValidate className="space-y-5">
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label htmlFor="email" className="block text-sm font-medium text-[#a0a0b8] mb-1.5">
                   Email address
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#606078]">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -97,10 +98,10 @@ export default function Login() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className={`w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border bg-white transition-colors outline-none
+                    className={`w-full pl-10 pr-4 py-2.5 text-sm rounded-xl border bg-[#0f0f17] text-[#f0f0ff] placeholder-[#606078] transition-colors outline-none
                       ${error
-                        ? 'border-red-300 focus:border-red-400 focus:ring-2 focus:ring-red-100'
-                        : 'border-gray-200 focus:border-violet-400 focus:ring-2 focus:ring-violet-100'
+                        ? 'border-red-500/40 focus:border-red-500/60 focus:ring-1 focus:ring-red-500/20'
+                        : 'border-[#1e1e30] focus:border-[#00d4ff]/50 focus:ring-1 focus:ring-[#00d4ff]/20'
                       }`}
                   />
                 </div>
@@ -108,11 +109,11 @@ export default function Login() {
 
               {/* Password */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label htmlFor="password" className="block text-sm font-medium text-[#a0a0b8] mb-1.5">
                   Password
                 </label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#606078]">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
@@ -125,16 +126,16 @@ export default function Login() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className={`w-full pl-10 pr-10 py-2.5 text-sm rounded-xl border bg-white transition-colors outline-none
+                    className={`w-full pl-10 pr-10 py-2.5 text-sm rounded-xl border bg-[#0f0f17] text-[#f0f0ff] placeholder-[#606078] transition-colors outline-none
                       ${error
-                        ? 'border-red-300 focus:border-red-400 focus:ring-2 focus:ring-red-100'
-                        : 'border-gray-200 focus:border-violet-400 focus:ring-2 focus:ring-violet-100'
+                        ? 'border-red-500/40 focus:border-red-500/60 focus:ring-1 focus:ring-red-500/20'
+                        : 'border-[#1e1e30] focus:border-[#00d4ff]/50 focus:ring-1 focus:ring-[#00d4ff]/20'
                       }`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#606078] hover:text-[#a0a0b8] transition-colors"
                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                   >
                     {showPassword ? (
@@ -156,7 +157,7 @@ export default function Login() {
                 <button
                   type="button"
                   onClick={() => setError('Password reset is not available at this time. Please contact support.')}
-                  className="text-xs text-violet-600 hover:text-violet-700 hover:underline transition-colors"
+                  className="text-xs text-[#00d4ff] hover:text-[#00a8cc] hover:underline transition-colors"
                 >
                   Forgot password?
                 </button>
@@ -166,7 +167,7 @@ export default function Login() {
               <button
                 type="submit"
                 disabled={loading || !email || !password}
-                className="w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 disabled:bg-violet-300 disabled:cursor-not-allowed text-white font-semibold text-sm py-3 rounded-xl transition-all shadow-sm shadow-violet-200 hover:shadow-violet-300"
+                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#00d4ff] to-[#8b5cf6] text-[#0a0a0f] font-bold text-sm py-3 rounded-xl transition-all glow-cyan-sm hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed disabled:glow-none"
               >
                 {loading ? (
                   <>
@@ -185,19 +186,19 @@ export default function Login() {
             {/* Divider */}
             <div className="relative my-7">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-100" />
+                <div className="w-full border-t border-[#1e1e30]" />
               </div>
               <div className="relative flex justify-center">
-                <span className="bg-white px-3 text-xs text-gray-400">Need help?</span>
+                <span className="bg-[#13131e] px-3 text-xs text-[#606078]">Need help?</span>
               </div>
             </div>
 
             {/* Support link */}
-            <p className="text-center text-xs text-gray-500">
+            <p className="text-center text-xs text-[#606078]">
               Having trouble signing in?{' '}
               <a
                 href={`mailto:${config.contact.support}`}
-                className="text-violet-600 hover:underline font-medium"
+                className="text-[#00d4ff] hover:underline font-medium"
               >
                 Contact support
               </a>
@@ -205,21 +206,21 @@ export default function Login() {
           </div>
 
           {/* Trust row */}
-          <div className="mt-6 flex items-center justify-center gap-5 text-xs text-gray-400">
+          <div className="mt-6 flex items-center justify-center gap-5 text-xs text-[#606078]">
             <span className="flex items-center gap-1">
-              <svg className="w-3.5 h-3.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-3.5 h-3.5 text-[#22c55e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
               Secure login
             </span>
             <span className="flex items-center gap-1">
-              <svg className="w-3.5 h-3.5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-3.5 h-3.5 text-[#00d4ff]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
               Privacy first
             </span>
             <span className="flex items-center gap-1">
-              <svg className="w-3.5 h-3.5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg className="w-3.5 h-3.5 text-[#8b5cf6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               AI-powered
@@ -227,11 +228,11 @@ export default function Login() {
           </div>
 
           {/* Legal */}
-          <p className="text-center text-xs text-gray-400 mt-4">
+          <p className="text-center text-xs text-[#606078] mt-4">
             By signing in you agree to our{' '}
-            <Link to="/terms-of-service" className="hover:text-violet-600 underline transition-colors">Terms of Service</Link>
+            <Link to="/terms-of-service" className="hover:text-[#00d4ff] underline transition-colors">Terms of Service</Link>
             {' '}and{' '}
-            <Link to="/privacy-policy" className="hover:text-violet-600 underline transition-colors">Privacy Policy</Link>
+            <Link to="/privacy-policy" className="hover:text-[#00d4ff] underline transition-colors">Privacy Policy</Link>
           </p>
         </div>
       </div>

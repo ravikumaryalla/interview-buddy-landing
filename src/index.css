@@ -13,9 +13,87 @@ body {
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #0a0a0f;
+  color: #f0f0ff;
 }
 
 #root {
   width: 100%;
   min-height: 100svh;
+}
+
+/* === CSS CUSTOM PROPERTIES === */
+:root {
+  --cyan: #00d4ff;
+  --violet: #8b5cf6;
+  --bg-base: #0a0a0f;
+  --bg-surface: #13131e;
+  --border-subtle: #1e1e30;
+}
+
+/* === GLASS MORPHISM CARDS === */
+.glass-card {
+  background: rgba(19, 19, 30, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card-cyan {
+  background: rgba(0, 212, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.12);
+}
+
+/* === GLOW EFFECTS === */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.25), 0 0 60px rgba(0, 212, 255, 0.1);
+}
+
+.glow-cyan-sm {
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3), 0 4px 20px rgba(0, 212, 255, 0.15);
+}
+
+.glow-violet {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.25), 0 0 60px rgba(139, 92, 246, 0.1);
+}
+
+/* === NEON BORDER === */
+.border-glow-cyan {
+  border-color: rgba(0, 212, 255, 0.3) !important;
+  box-shadow: inset 0 0 12px rgba(0, 212, 255, 0.05), 0 0 12px rgba(0, 212, 255, 0.08);
+}
+
+/* === GRADIENT TEXT === */
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff, #a78bfa, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === CURSOR BLINK ANIMATION === */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* === DARK SCROLLBAR === */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar-thumb { background: #1e1e30; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2a2a40; }
+
+/* === AUTOFILL OVERRIDE (prevents white flash in dark inputs) === */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #0f0f17 inset !important;
+  -webkit-text-fill-color: #f0f0ff !important;
+  caret-color: #f0f0ff;
 }

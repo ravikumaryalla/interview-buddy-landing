@@ -43,18 +43,15 @@ export default function TermsOfService() {
 
       <Section title="2. Description of Service">
         <p>
-          {app.name} is an <strong>AI-powered interview preparation and guidance platform</strong> that provides:
+          {app.name} is an <strong>AI-powered live interview assistance Windows desktop application</strong> that:
         </p>
         <ul className="space-y-2 mt-2">
-          <Li>Mock interview practice sessions in a private, offline environment.</Li>
-          <Li>AI-generated feedback and improvement suggestions on practice responses.</Li>
-          <Li>Resume-based question generation for targeted preparation.</Li>
-          <Li>Performance analytics and progress tracking.</Li>
-          <Li>Educational content covering technical and behavioral interview topics.</Li>
+          <Li>Captures your screen in real-time during interviews using a proprietary stealth capture engine.</Li>
+          <Li>Delivers AI-generated answers to interview questions as they appear on your screen.</Li>
+          <Li>Operates in stealth mode to avoid detection by interview platforms and proctoring software.</Li>
+          <Li>Requires credits to use, purchased via the website. Credits are consumed per minute of active AI assistance.</Li>
+          <Li>Is available exclusively as a Windows desktop application ({app.platform}).</Li>
         </ul>
-        <p className="mt-3 font-medium text-gray-800">
-          {app.name} is a preparation tool designed exclusively for educational and self-improvement purposes. It is not intended to be used during actual interviews or to assist in any live hiring assessment.
-        </p>
       </Section>
 
       <Section title="3. Eligibility">
@@ -79,12 +76,10 @@ export default function TermsOfService() {
       </Section>
 
       <Section title="5. Acceptable Use Policy">
-        <p>You agree to use {app.name} only for its intended purpose — personal interview preparation. You must NOT:</p>
+        <p>You agree to use {app.name} responsibly. You must NOT:</p>
         <ul className="space-y-2 mt-2">
-          <Li>Use the Service during actual job interviews, assessments, or hiring evaluations.</Li>
-          <Li>Attempt to deceive, mislead, or gain unfair advantage over employers or hiring parties using this tool.</Li>
-          <Li>Reverse engineer, decompile, or attempt to extract the source code of the platform.</Li>
-          <Li>Use automated bots, scrapers, or scripts to access the Service.</Li>
+          <Li>Reverse engineer, decompile, or attempt to extract the source code of the application or platform.</Li>
+          <Li>Use automated bots, scrapers, or scripts to access the Service or circumvent credit usage.</Li>
           <Li>Share your account credentials or resell access to the platform.</Li>
           <Li>Upload content that is illegal, harmful, defamatory, or violates any third-party rights.</Li>
           <Li>Circumvent any security measures, rate limits, or access controls.</Li>
@@ -95,29 +90,31 @@ export default function TermsOfService() {
         </p>
       </Section>
 
-      <Section title="6. Ethical Use Commitment">
+      <Section title="6. Usage Responsibility">
         <p>
-          {app.name} is built on a commitment to ethical career development. Our platform helps you <strong>build genuine skills</strong> through practice — not to bypass, deceive, or manipulate any hiring process.
+          Users are responsible for ensuring their use of {app.name} complies with the terms and conditions of any interview platform or employer they interact with. {app.name} makes no representations about the permissibility of its use in any specific interview context.
         </p>
         <p className="mt-2">
-          All AI assistance provided by {app.name} occurs exclusively within private practice sessions. We explicitly do not support, enable, or condone any use of our platform to gain an unfair or dishonest advantage in any hiring context.
-        </p>
-        <p className="mt-2">
-          By using {app.name}, you affirm that you will use it solely for personal skill development and preparation.
+          By using {app.name}, you accept full responsibility for how you use the application and its outputs.
         </p>
       </Section>
 
-      <Section title="7. Subscription and Billing">
+      <Section title="7. Credits and Billing">
         <p>
-          {app.name} offers Free, Pro (₹{pricing.pro}/month), and Premium (₹{pricing.premium}/month) plans. Paid subscriptions are billed on a monthly or annual basis, as selected at checkout.
+          {app.name} uses a credit-based billing model. Credits are purchased in packs and consumed per minute of live AI assistance:
         </p>
         <ul className="space-y-2 mt-2">
-          <Li>Subscriptions auto-renew unless cancelled before the renewal date.</Li>
-          <Li>You will be notified of any price changes at least 30 days in advance.</Li>
-          <Li>All payments are processed securely through our trusted payment provider.</Li>
+          <Li>Starter Pack: {pricing.starterCredits} credits for ₹{pricing.starterPrice}</Li>
+          <Li>Pro Pack: {pricing.proCredits} credits for ₹{pricing.proPrice}</Li>
+          <Li>Elite Pack: {pricing.eliteCredits} credits for ₹{pricing.elitePrice}</Li>
+        </ul>
+        <ul className="space-y-2 mt-3">
+          <Li>Credits never expire and are non-transferable between accounts.</Li>
+          <Li>There are no subscriptions or auto-renewals. You only pay when you purchase a pack.</Li>
+          <Li>All payments are processed securely through our payment provider (Cashfree).</Li>
           <Li>Taxes may apply depending on your location.</Li>
         </ul>
-        <p className="mt-3">See our <a href="/refund-policy" className="text-violet-600 hover:underline font-medium">Refund Policy</a> for cancellation and refund terms.</p>
+        <p className="mt-3">See our <a href="/refund-policy" className="text-violet-600 hover:underline font-medium">Refund Policy</a> for refund terms.</p>
       </Section>
 
       <Section title="8. Intellectual Property">

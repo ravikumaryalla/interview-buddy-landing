@@ -41,28 +41,28 @@ export default function RefundPolicy() {
   return (
     <LegalLayout title="Refund Policy" lastUpdated={policy.lastUpdated}>
       <div className="bg-emerald-50 border border-emerald-100 rounded-xl px-5 py-4 mb-10 text-sm text-emerald-800">
-        <strong>Our commitment:</strong> We want you to be completely satisfied with {app.name}. If you're not happy within {policy.refundWindowDays} days of your first paid subscription, we'll refund you — no questions asked.
+        <strong>Our commitment:</strong> We want you to be completely satisfied with {app.name}. If you're not happy within {policy.refundWindowDays} days of your first credit purchase, we'll refund you — no questions asked.
       </div>
 
       {/* Quick summary cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-        <PolicyCard icon="✅" title={`${policy.refundWindowDays}-Day Money-Back`} desc={`Full refund within ${policy.refundWindowDays} days of first payment on Pro or Premium plans.`} />
-        <PolicyCard icon="❌" title="Cancel Anytime" desc="Cancel your subscription at any time with no cancellation fees." />
+        <PolicyCard icon="✅" title={`${policy.refundWindowDays}-Day Money-Back`} desc={`Full refund within ${policy.refundWindowDays} days of your first credit pack purchase.`} />
+        <PolicyCard icon="♾️" title="Credits Never Expire" desc="All purchased credits are valid indefinitely. No subscription, no auto-renewal." />
         <PolicyCard icon="🔒" title="No Hidden Charges" desc="What you see on the pricing page is exactly what you pay. No surprises." />
       </div>
 
       <Section title="1. Overview">
         <p>
-          This Refund Policy governs all purchases made on {app.name} ("we", "our", "us"). We believe in fairness and transparency. This policy is designed to be clear, simple, and customer-friendly.
+          This Refund Policy governs all credit pack purchases made on {app.name} ("we", "our", "us"). We believe in fairness and transparency. This policy is designed to be clear, simple, and customer-friendly.
         </p>
         <p>
-          By purchasing a paid subscription, you agree to the terms of this Refund Policy.
+          By purchasing a credit pack, you agree to the terms of this Refund Policy. There are no subscriptions or auto-renewals — you purchase credits as needed.
         </p>
       </Section>
 
       <Section title="2. Money-Back Guarantee">
         <p>
-          We offer a <strong>{policy.refundWindowDays}-day money-back guarantee</strong> for all first-time paid subscriptions (Pro and Premium plans). If you are not satisfied with the Service for any reason within the first {policy.refundWindowDays} days of your initial paid subscription, you may request a full refund.
+          We offer a <strong>{policy.refundWindowDays}-day money-back guarantee</strong> on your first credit pack purchase. If you are not satisfied with the Service for any reason within the first {policy.refundWindowDays} days of your initial purchase, you may request a full refund.
         </p>
         <p className="mt-2">To request a refund under this guarantee:</p>
         <ul className="space-y-2 mt-2">
@@ -71,7 +71,7 @@ export default function RefundPolicy() {
           <Li>We will process your refund within {policy.refundProcessingDays} business days.</Li>
         </ul>
         <p className="mt-3 text-gray-500 text-xs">
-          Note: The money-back guarantee applies to the <em>first</em> paid subscription only. Subsequent renewals or plan upgrades are governed by the standard refund policy below.
+          Note: The money-back guarantee applies to the <em>first</em> credit pack purchase only. Subsequent purchases are governed by the standard refund policy below.
         </p>
       </Section>
 
@@ -88,27 +88,24 @@ export default function RefundPolicy() {
       <Section title="4. Non-Refundable Situations">
         <p>Refunds will generally not be issued in the following situations:</p>
         <ul className="space-y-2 mt-2">
-          <Li>Requests made after {policy.refundWindowDays} days of the billing date (for standard renewals).</Li>
-          <Li>Change of mind after actively using the platform beyond initial exploration.</Li>
-          <Li>Failure to cancel before an auto-renewal date (we send renewal reminders 3 days in advance).</Li>
+          <Li>Requests made after {policy.refundWindowDays} days of the purchase date.</Li>
+          <Li>Change of mind after actively using credits beyond initial exploration.</Li>
+          <Li>Credits that have already been consumed (used during active sessions).</Li>
           <Li>Account termination due to violation of our Terms of Service.</Li>
-          <Li>Partial months — subscriptions are billed per billing cycle, not per day.</Li>
-          <Li>Free plan users (no charges apply).</Li>
         </ul>
       </Section>
 
-      <Section title="5. Cancellation">
+      <Section title="5. Credit Packs and Expiry">
         <p>
-          You may cancel your subscription at any time from your account settings under <strong>Billing → Cancel Subscription</strong>. Cancellation is effective at the end of the current billing period.
+          Credits purchased on {app.name} never expire. There is no subscription and no auto-renewal. You retain your credits indefinitely and can use them across multiple interviews at any time.
         </p>
         <ul className="space-y-2 mt-2">
-          <Li>After cancellation, you will retain access to your paid plan features until the end of the current billing period.</Li>
-          <Li>Your account will then automatically downgrade to the Free plan.</Li>
-          <Li>Cancelling does not delete your account or data. You may resubscribe at any time.</Li>
-          <Li>No cancellation fees are charged.</Li>
+          <Li>Credits are tied to your account and are non-transferable.</Li>
+          <Li>If you purchased the wrong pack by mistake, contact support within 24 hours for a potential exchange.</Li>
+          <Li>Unused credits at the time of account deletion will be forfeited.</Li>
         </ul>
         <p className="mt-3">
-          If you need help cancelling, email us at <MailLink email={contact.support} />.
+          For assistance, email us at <MailLink email={contact.support} />.
         </p>
       </Section>
 
@@ -122,26 +119,7 @@ export default function RefundPolicy() {
         </ul>
       </Section>
 
-      <Section title="7. Annual Plan Refunds">
-        <p>
-          For annual subscriptions, the {policy.refundWindowDays}-day money-back guarantee applies from the date of first payment. After {policy.refundWindowDays} days:
-        </p>
-        <ul className="space-y-2 mt-2">
-          <Li>We may offer a pro-rated refund for the unused months at our discretion, evaluated case by case.</Li>
-          <Li>If you are downgrading from annual to monthly, no refund is issued for the remaining annual period, but you retain access until the annual period ends.</Li>
-        </ul>
-      </Section>
-
-      <Section title="8. Plan Upgrades and Downgrades">
-        <p>
-          When you upgrade from a lower plan to a higher plan mid-cycle, you will be charged a pro-rated amount for the remainder of your current billing period. When you downgrade, the change takes effect at the start of your next billing cycle — no refund is issued for the difference.
-        </p>
-        <p className="mt-2">
-          Current plan prices: Pro at ₹{pricing.pro}/month, Premium at ₹{pricing.premium}/month.
-        </p>
-      </Section>
-
-      <Section title="9. Contact for Refund Requests">
+      <Section title="7. Contact for Refund Requests">
         <p>To request a refund or if you have questions about billing:</p>
         <div className="mt-3 bg-gray-50 border border-gray-100 rounded-xl p-5 text-sm space-y-2">
           <p><strong>Email:</strong> <MailLink email={contact.support} /></p>
@@ -151,7 +129,7 @@ export default function RefundPolicy() {
         </div>
       </Section>
 
-      <Section title="10. Changes to This Policy">
+      <Section title="8. Changes to This Policy">
         <p>
           We reserve the right to update this Refund Policy at any time. Changes will be communicated via email and posted on this page with an updated effective date. For subscriptions already active at the time of a policy change, the previous policy terms will apply for that billing cycle.
         </p>

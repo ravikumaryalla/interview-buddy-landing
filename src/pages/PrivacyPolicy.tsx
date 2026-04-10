@@ -29,12 +29,12 @@ export default function PrivacyPolicy() {
   return (
     <LegalLayout title="Privacy Policy" lastUpdated={config.policy.lastUpdated}>
       <div className="bg-violet-50 border border-violet-100 rounded-xl px-5 py-4 mb-10 text-sm text-violet-800">
-        <strong>Summary:</strong> We collect only what's necessary to run {config.app.name}. We never sell your data. Everything is encrypted. You can delete your account and data at any time.
+        <strong>Summary:</strong> We collect only what's necessary to run {config.app.name}. We never sell your data. Screen captures are processed locally in real-time and never stored on our servers. You can delete your account and data at any time.
       </div>
 
       <Section title="1. Who We Are">
         <p>
-          {config.app.name} ("we", "our", "us") is an AI-powered interview preparation and guidance platform operated at <strong>{config.app.url}</strong>. We are committed to protecting your personal data and respecting your privacy.
+          {config.app.name} ("we", "our", "us") is an AI-powered live interview assistance desktop application for Windows, operated at <strong>{config.app.url}</strong>. We are committed to protecting your personal data and respecting your privacy.
         </p>
         <p>
           For any privacy-related queries, contact us at: <MailLink email={config.contact.privacy} />
@@ -45,8 +45,7 @@ export default function PrivacyPolicy() {
         <p>We collect the following categories of data when you use {config.app.name}:</p>
         <ul className="space-y-2 mt-2">
           <Li><strong>Account Information:</strong> Name, email address, and password when you register.</Li>
-          <Li><strong>Resume Data:</strong> Content you upload for resume-based question generation. This is processed to generate personalized practice questions and is never shared with third parties.</Li>
-          <Li><strong>Session Data:</strong> Practice session recordings (text responses), AI feedback logs, and performance metrics stored to provide analytics and improvement tracking.</Li>
+          <Li><strong>Session Data:</strong> Screen capture data processed locally on your Windows device during live sessions for AI analysis. This data is NOT stored on our servers — it is processed in real-time and discarded immediately after each answer is generated.</Li>
           <Li><strong>Usage Data:</strong> Pages visited, features used, device type, browser type, and IP address — collected automatically for product improvement and security.</Li>
           <Li><strong>Payment Information:</strong> Billing details are processed securely by our payment provider. We do not store credit card numbers or sensitive payment data on our servers.</Li>
         </ul>
@@ -56,10 +55,9 @@ export default function PrivacyPolicy() {
         <p>We use the data collected for the following purposes:</p>
         <ul className="space-y-2 mt-2">
           <Li>To provide, operate, and improve the {config.app.name} platform.</Li>
-          <Li>To generate personalized interview questions and AI feedback.</Li>
-          <Li>To process payments and manage your subscription.</Li>
+          <Li>To process your screen captures locally and deliver AI-generated answers in real-time during your live sessions.</Li>
+          <Li>To process credit purchases and manage your account balance.</Li>
           <Li>To send transactional emails (receipts, password resets, account alerts).</Li>
-          <Li>To send product updates and newsletters — only if you opt in.</Li>
           <Li>To detect, prevent, and address fraud, abuse, or security issues.</Li>
           <Li>To comply with legal obligations.</Li>
         </ul>

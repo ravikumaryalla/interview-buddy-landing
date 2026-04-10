@@ -1,181 +1,136 @@
-import { Link } from 'react-router-dom';
 import { config } from '../config';
 
 export default function Hero() {
   return (
-    <section className='relative overflow-hidden bg-white pt-24 pb-20 sm:pt-32 sm:pb-28'>
-      {/* Background gradient blobs */}
-      <div className='absolute inset-0 -z-10 overflow-hidden'>
-        <div className='absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full bg-violet-100/60 blur-3xl' />
-        <div className='absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-100/50 blur-3xl' />
+    <section className="relative overflow-hidden bg-[#0a0a0f] pt-24 pb-20 sm:pt-32 sm:pb-28">
+      {/* Ambient background glow blobs */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full bg-[#00d4ff]/8 blur-[120px]" />
+        <div className="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-[#8b5cf6]/8 blur-[120px]" />
       </div>
 
-      <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
-        <div className='inline-flex items-center gap-2 bg-violet-50 border border-violet-200 text-violet-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6'>
-          <span className='w-1.5 h-1.5 bg-violet-500 rounded-full animate-pulse' />
-          AI-Powered Interview Preparation
+        <div className="inline-flex items-center gap-2 bg-[#00d4ff]/10 border border-[#00d4ff]/20 text-[#00d4ff] text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-widest">
+          <span className="w-1.5 h-1.5 bg-[#00d4ff] rounded-full animate-pulse" />
+          Windows Only — Live AI Assist
         </div>
 
         {/* Headline */}
-        <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight max-w-4xl mx-auto'>
-          Ace Your Interviews with{' '}
-          <span className='bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent'>
-            AI-Powered Guidance
-          </span>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#f0f0ff] leading-tight tracking-tight max-w-4xl mx-auto">
+          Your{' '}
+          <span className="gradient-text">Secret Weapon</span>
+          {' '}for Every Interview
         </h1>
 
         {/* Subheading */}
-        <p className='mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed'>
-          Get real-time suggestions, practice smarter, and improve your
-          interview performance with AI assistance designed for serious
-          candidates.
+        <p className="mt-6 text-lg sm:text-xl text-[#a0a0b8] max-w-2xl mx-auto leading-relaxed">
+          AI-powered live assistance that runs invisibly on Windows. Get real-time answers
+          during any interview — completely undetectable by Zoom, Teams, HireVue, or any proctoring tool.
         </p>
 
         {/* CTA Buttons */}
-        <div className='mt-10 flex flex-col sm:flex-row items-center justify-center gap-4'>
-          <Link
-            to='/login'
-            className='w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-semibold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-violet-200 hover:shadow-violet-300 hover:-translate-y-0.5'
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href={config.app.downloadUrl}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#00d4ff] to-[#8b5cf6] text-[#0a0a0f] font-bold px-8 py-3.5 rounded-xl glow-cyan-sm hover:opacity-90 transition-all"
           >
-            Start Free Trial
-            <svg className='w-4 h-4' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={2}>
-              <path strokeLinecap='round' strokeLinejoin='round' d='M13 7l5 5m0 0l-5 5m5-5H6' />
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
             </svg>
-          </Link>
-          {/* <a
-            href="#demo"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-800 font-semibold px-8 py-3.5 rounded-xl border border-gray-200 transition-all hover:-translate-y-0.5 shadow-sm"
+            Download for Windows
+          </a>
+          <a
+            href="#pricing"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[#00d4ff]/30 text-[#00d4ff] hover:bg-[#00d4ff]/10 font-semibold px-8 py-3.5 rounded-xl transition-all"
           >
-            <svg className="w-4 h-4 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            View Demo
-          </a> */}
+            Buy Credits
+          </a>
         </div>
 
-        {/* Social proof */}
-        <p className='mt-6 text-sm text-gray-500'>
-          Trusted by{' '}
-          <span className='font-semibold text-gray-700'>
-            {config.social.userCount}
-          </span>{' '}
-          developers · No credit card required
-        </p>
+        {/* Windows badge */}
+        <div className="mt-5 inline-flex items-center gap-2 text-[#606078] text-xs">
+          <svg className="w-4 h-4 text-[#00d4ff]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+          </svg>
+          {config.app.platform} Only
+        </div>
 
-        {/* Trust Badges */}
-        <div className='mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6'>
+        {/* Stats row */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12">
           {[
-            { icon: '🔒', label: 'Secure Payments' },
-            { icon: '👩‍💻', label: 'Trusted by Developers' },
-            { icon: '🛡️', label: 'Privacy First' },
-          ].map((badge) => (
-            <div
-              key={badge.label}
-              className='flex items-center gap-2 bg-white border border-gray-100 shadow-sm rounded-full px-4 py-2 text-sm text-gray-700 font-medium'
-            >
-              <span>{badge.icon}</span>
-              {badge.label}
+            { value: config.social.interviewsCracked, label: 'Interviews Cracked' },
+            { value: config.social.userCount, label: 'Active Users' },
+            { value: config.social.successRate, label: 'Success Rate' },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-3xl font-bold gradient-text">{stat.value}</div>
+              <div className="text-sm text-[#606078] mt-1">{stat.label}</div>
             </div>
           ))}
         </div>
 
-        {/* Mock UI Preview */}
-        <div className='mt-16 relative mx-auto max-w-4xl'>
-          <div className='absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10 pointer-events-none h-16 bottom-0 top-auto' />
-          <div className='bg-white border border-gray-200 rounded-2xl shadow-2xl overflow-hidden'>
-            {/* Browser chrome */}
-            <div className='flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200'>
-              <div className='w-3 h-3 rounded-full bg-red-400' />
-              <div className='w-3 h-3 rounded-full bg-yellow-400' />
-              <div className='w-3 h-3 rounded-full bg-green-400' />
-              <div className='flex-1 mx-4 bg-white border border-gray-200 rounded text-xs text-gray-400 px-3 py-1 text-left'>
-                app.interviewbuddy.ai/session
+        {/* App mockup — Windows-style */}
+        <div className="mt-16 relative mx-auto max-w-4xl">
+          <div className="bg-[#0f0f17] border border-[#1e1e30] rounded-xl overflow-hidden glow-cyan shadow-2xl">
+            {/* Windows titlebar */}
+            <div className="flex items-center justify-between px-4 py-2.5 bg-[#080810] border-b border-[#1e1e30]">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#8b5cf6]" />
+                <span className="text-[#606078] text-xs font-mono">Interview Buddy — Active Session</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-[#606078] text-xs font-mono">⬤ LIVE</span>
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-[#2a2a3a]" />
+                  <div className="w-3 h-3 rounded-full bg-[#2a2a3a]" />
+                  <div className="w-3 h-3 rounded-full bg-[#2a2a3a]" />
+                </div>
               </div>
             </div>
-            {/* Mock interview UI */}
-            <div className='p-6 bg-gradient-to-br from-slate-50 to-white'>
-              <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-                {/* Question panel */}
-                <div className='md:col-span-2 bg-white rounded-xl border border-gray-100 shadow-sm p-4 text-left'>
-                  <div className='flex items-center gap-2 mb-3'>
-                    <span className='w-2 h-2 bg-green-500 rounded-full animate-pulse' />
-                    <span className='text-xs font-semibold text-gray-500 uppercase tracking-wide'>
-                      Live Session
-                    </span>
+
+            {/* Two-panel body */}
+            <div className="p-4 grid grid-cols-3 gap-3 min-h-[260px]">
+              {/* Left: Simulated video call */}
+              <div className="col-span-2 bg-[#0d0d1a] border border-[#1e1e30] rounded-lg p-3 flex flex-col gap-2">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
+                  <span className="text-[#606078] text-xs font-mono">zoom.exe — Meeting in progress</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2 flex-1">
+                  <div className="bg-[#13131e] border border-[#1e1e30] rounded-lg flex items-center justify-center min-h-[80px]">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#8b5cf6]/30 to-[#00d4ff]/30 border border-[#8b5cf6]/30 flex items-center justify-center text-[#a0a0b8] text-sm font-semibold">
+                      IK
+                    </div>
                   </div>
-                  <p className='text-sm font-semibold text-gray-800 mb-2'>
-                    Technical Question #3
-                  </p>
-                  <p className='text-sm text-gray-600 leading-relaxed'>
-                    "Explain the concept of closures in JavaScript and provide a
-                    real-world use case where you'd apply them."
-                  </p>
-                  <div className='mt-4 bg-gray-50 rounded-lg p-3'>
-                    <p className='text-xs text-gray-400 font-mono'>
-                      Your response will appear here...
-                    </p>
-                    <div className='mt-2 flex gap-1'>
-                      <div className='h-1 w-1/3 bg-violet-300 rounded-full animate-pulse' />
-                      <div
-                        className='h-1 w-1/4 bg-violet-200 rounded-full animate-pulse'
-                        style={{ animationDelay: '0.2s' }}
-                      />
-                      <div
-                        className='h-1 w-1/5 bg-violet-100 rounded-full animate-pulse'
-                        style={{ animationDelay: '0.4s' }}
-                      />
+                  <div className="bg-[#13131e] border border-[#1e1e30] rounded-lg flex items-center justify-center min-h-[80px]">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#00d4ff]/20 to-[#8b5cf6]/20 border border-[#00d4ff]/30 flex items-center justify-center text-[#a0a0b8] text-sm font-semibold">
+                      You
                     </div>
                   </div>
                 </div>
-                {/* AI suggestions panel */}
-                <div className='bg-gradient-to-br from-violet-50 to-indigo-50 rounded-xl border border-violet-100 p-4 text-left'>
-                  <div className='flex items-center gap-2 mb-3'>
-                    <div className='w-5 h-5 bg-violet-600 rounded flex items-center justify-center'>
-                      <svg
-                        className='w-3 h-3 text-white'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        strokeWidth={2.5}
-                      >
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          d='M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
-                        />
-                      </svg>
+                <div className="mt-auto pt-2 border-t border-[#1e1e30]">
+                  <p className="text-[#606078] text-xs font-mono truncate">"Explain the time complexity of a hash map lookup in the worst case..."</p>
+                </div>
+              </div>
+
+              {/* Right: IB AI overlay panel */}
+              <div className="col-span-1 glass-card-cyan border-glow-cyan rounded-lg p-3 flex flex-col gap-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-[#00d4ff] rounded-full animate-pulse" />
+                  <span className="text-[#00d4ff] text-xs font-bold font-mono">LIVE AI ASSIST</span>
+                </div>
+                <div className="flex-1 mt-1">
+                  <p className="text-[#a0a0b8] text-xs leading-relaxed font-mono">
+                    Hash map: O(1) avg case. Worst case O(n) due to hash collisions. Mention open addressing vs. chaining. Java's HashMap uses load factor 0.75...<span className="cursor-blink text-[#00d4ff]">|</span>
+                  </p>
+                </div>
+                <div className="pt-2 border-t border-[#00d4ff]/10">
+                  <div className="flex items-center gap-1.5">
+                    <div className="h-1 flex-1 bg-[#1e1e30] rounded-full overflow-hidden">
+                      <div className="h-full w-4/5 bg-gradient-to-r from-[#00d4ff] to-[#8b5cf6] rounded-full" />
                     </div>
-                    <span className='text-xs font-semibold text-violet-700'>
-                      AI Suggestions
-                    </span>
-                  </div>
-                  <ul className='space-y-2'>
-                    {[
-                      'Mention lexical scoping',
-                      'Give a counter/timer example',
-                      'Discuss module pattern',
-                    ].map((tip) => (
-                      <li
-                        key={tip}
-                        className='flex items-start gap-2 text-xs text-gray-700'
-                      >
-                        <span className='text-violet-500 mt-0.5'>✓</span>
-                        {tip}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className='mt-3 pt-3 border-t border-violet-100'>
-                    <p className='text-xs text-violet-600 font-medium'>
-                      Confidence score
-                    </p>
-                    <div className='mt-1 h-2 bg-violet-100 rounded-full overflow-hidden'>
-                      <div className='h-full w-3/4 bg-gradient-to-r from-violet-500 to-indigo-500 rounded-full' />
-                    </div>
-                    <p className='text-xs text-gray-500 mt-1'>
-                      75% — Good, keep going!
-                    </p>
+                    <span className="text-[#606078] text-xs font-mono">94%</span>
                   </div>
                 </div>
               </div>

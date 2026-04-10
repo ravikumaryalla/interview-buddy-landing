@@ -3,28 +3,36 @@ import { config } from '../config';
 
 const faqs = [
   {
-    q: 'Is Interview Buddy ethical to use?',
-    a: 'Absolutely. Interview Buddy is a preparation and practice platform — similar to a study guide or a coaching class. It helps you build genuine skills, practice answering questions, and improve your communication. All practice happens in private sessions, not during actual interviews. We are fully committed to ethical career development.',
+    q: 'Will the interviewer be able to detect Interview Buddy?',
+    a: 'No. Interview Buddy is engineered specifically to be undetectable. It does not appear in Task Manager, does not use OBS-based screen capture, does not hook into audio pipelines, and generates no detectable network signatures. It has been tested against Zoom, Google Meet, Microsoft Teams, HireVue, CoderPad, HackerRank, and Proctorio.',
   },
   {
-    q: 'How does the AI assistance work?',
-    a: 'Our AI analyzes your responses during practice sessions and provides structured feedback covering clarity, relevance, depth, and confidence. It suggests key concepts to include, flags areas for improvement, and generates personalized questions based on your resume and target role. All AI interactions are in a private practice environment.',
+    q: 'How does it work during an interview?',
+    a: 'You launch Interview Buddy before joining your interview. It silently captures your screen in real-time. As interview questions appear on screen, the AI reads them and delivers answers directly in the app\'s overlay — visible only to you. The answers appear as text you can read while speaking naturally.',
   },
   {
-    q: 'Can I cancel my subscription anytime?',
-    a: 'Yes, you can cancel anytime directly from your account settings — no phone calls, no forms, no questions asked. If you cancel a paid plan, you retain access until the end of your current billing period. We also offer a 7-day money-back guarantee on all paid plans.',
+    q: 'What platforms and interview tools does it support?',
+    a: 'Interview Buddy works with any Windows screen-based interview: Zoom, Google Meet, Microsoft Teams, HireVue video interviews, CoderPad, HackerRank, LeetCode assessments, and any browser-based platform. If it appears on your Windows screen, Interview Buddy can read it.',
   },
   {
-    q: 'Is my data secure?',
-    a: 'Yes. We take data security seriously. All data transmitted to and from our platform is encrypted using industry-standard TLS. Resume data and session recordings are encrypted at rest. We do not sell or share your personal data with third parties. You can delete your account and all associated data at any time.',
+    q: 'What is a credit and how many will I need?',
+    a: `1 credit = 1 minute of live AI assistance. A typical 45-minute technical interview uses approximately 20–30 credits (the AI runs only when questions appear, not continuously). The Starter Pack (${config.pricing.starterCredits} credits) is enough for 1–2 full interview rounds.`,
   },
   {
-    q: 'What types of interviews can I prepare for?',
-    a: 'Interview Buddy supports preparation for technical interviews (coding, system design, architecture), behavioral interviews (STAR method, leadership, conflict resolution), and role-specific interviews across domains like frontend, backend, data engineering, DevOps, and more.',
+    q: 'Do credits expire?',
+    a: 'No. Credits never expire. You can buy them whenever you want and use them months later across as many interviews as you need.',
   },
   {
-    q: 'Do I need technical experience to use Interview Buddy?',
-    a: 'No. Interview Buddy is designed for candidates at all levels — from students preparing for their first job to senior engineers targeting staff-level roles. You can customize the difficulty and domain of your practice sessions to match your experience level.',
+    q: 'Is this a Windows-only app?',
+    a: `Yes. Interview Buddy is a Windows desktop application (${config.app.platform}). Mac and Linux versions are not currently available.`,
+  },
+  {
+    q: 'What happens after I buy credits?',
+    a: 'Credits are added to your account immediately after successful payment. You can see your balance in the app. There is no subscription or auto-renewal — you only spend credits when you actively use the app during an interview.',
+  },
+  {
+    q: 'Can I get a refund?',
+    a: `We offer a ${config.policy.refundWindowDays}-day refund on your first credit purchase if you're unsatisfied. Subsequent purchases follow our standard refund policy. See the Refund Policy page for full details.`,
   },
 ];
 
@@ -32,16 +40,16 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-20 sm:py-28 bg-white">
+    <section id="faq" className="py-20 sm:py-28 bg-[#0a0a0f]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">FAQ</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#00d4ff] mb-3">FAQ</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#f0f0ff] tracking-tight">
             Frequently asked questions
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Have more questions? Email us at{' '}
-            <a href={`mailto:${config.contact.support}`} className="text-violet-600 hover:underline font-medium">
+          <p className="mt-4 text-lg text-[#a0a0b8]">
+            Still have questions? Email us at{' '}
+            <a href={`mailto:${config.contact.support}`} className="text-[#00d4ff] hover:underline font-medium">
               {config.contact.support}
             </a>
           </p>
@@ -52,7 +60,9 @@ export default function FAQ() {
             <div
               key={i}
               className={`border rounded-xl overflow-hidden transition-colors ${
-                openIndex === i ? 'border-violet-200 bg-violet-50/50' : 'border-gray-100 bg-white'
+                openIndex === i
+                  ? 'border-[#00d4ff]/20 bg-[#00d4ff]/5'
+                  : 'border-[#1e1e30] bg-[#0f0f17]'
               }`}
             >
               <button
@@ -60,11 +70,11 @@ export default function FAQ() {
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 aria-expanded={openIndex === i}
               >
-                <span className={`text-sm font-semibold ${openIndex === i ? 'text-violet-700' : 'text-gray-900'}`}>
+                <span className={`text-sm font-semibold ${openIndex === i ? 'text-[#00d4ff]' : 'text-[#f0f0ff]'}`}>
                   {faq.q}
                 </span>
                 <svg
-                  className={`w-4 h-4 flex-shrink-0 transition-transform ${openIndex === i ? 'rotate-180 text-violet-600' : 'text-gray-400'}`}
+                  className={`w-4 h-4 flex-shrink-0 transition-transform ${openIndex === i ? 'rotate-180 text-[#00d4ff]' : 'text-[#606078]'}`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -75,7 +85,7 @@ export default function FAQ() {
               </button>
               {openIndex === i && (
                 <div className="px-6 pb-5">
-                  <p className="text-sm text-gray-700 leading-relaxed">{faq.a}</p>
+                  <p className="text-sm text-[#a0a0b8] leading-relaxed">{faq.a}</p>
                 </div>
               )}
             </div>

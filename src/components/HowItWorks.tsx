@@ -1,42 +1,41 @@
 const steps = [
   {
     step: '01',
-    title: 'Upload Resume or Choose a Role',
-    desc: 'Start by uploading your resume or selecting a job role. Interview Buddy personalizes the entire experience based on your background and goals.',
+    title: 'Download & Install',
+    desc: 'Download the Interview Buddy Windows app — a one-time 5-minute install. Works on Windows 10 and Windows 11. No ongoing setup required.',
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
       </svg>
     ),
   },
   {
     step: '02',
-    title: 'Start a Mock or Guided Session',
-    desc: 'Choose between a full mock interview or a topic-specific guided session. Our AI simulates realistic interview dynamics tailored to your target company.',
+    title: 'Sign In & Buy Credits',
+    desc: 'Log into your Interview Buddy account on the website. Purchase a credit pack — credits never expire, so buy when you\'re ready and use them at your own pace.',
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 2.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
       </svg>
     ),
   },
   {
     step: '03',
-    title: 'Receive AI Suggestions & Feedback',
-    desc: 'As you practice, get real-time guidance to improve your answers. After each session, receive a detailed feedback report with specific improvement tips.',
+    title: 'Launch Before Your Interview',
+    desc: 'Open Interview Buddy a few minutes before joining your interview. It runs silently in the background — completely invisible to the interviewer, the platform, and any proctoring tool.',
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
   },
   {
     step: '04',
-    title: 'Improve & Track Your Progress',
-    desc: 'Review your analytics dashboard to see how you\'ve improved. Identify patterns, celebrate wins, and focus your effort where it matters most.',
+    title: 'Get AI Answers Live',
+    desc: 'During your interview, AI reads your screen and delivers full answers the moment questions appear. Read them naturally while you speak. Win the interview.',
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
       </svg>
     ),
   },
@@ -44,15 +43,17 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 sm:py-28 bg-white">
+    <section id="how-it-works" className="py-20 sm:py-28 bg-[#0a0a0f]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">How It Works</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
-            From setup to success in 4 steps
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#00d4ff] mb-3">How It Works</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#f0f0ff] tracking-tight">
+            From install to{' '}
+            <span className="gradient-text">interview win</span>
+            {' '}in 4 steps
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
-            Getting started takes minutes. Seeing results takes practice. We make both as smooth as possible.
+          <p className="mt-4 text-lg text-[#a0a0b8] max-w-xl mx-auto">
+            Getting started takes 5 minutes. The AI does the hard work during the interview.
           </p>
         </div>
 
@@ -60,14 +61,14 @@ export default function HowItWorks() {
           {steps.map((s) => (
             <div key={s.step} className="flex gap-5 group">
               <div className="flex-shrink-0">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-violet-200 group-hover:shadow-violet-300 transition-shadow">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00d4ff]/20 to-[#8b5cf6]/20 border border-[#00d4ff]/20 text-[#00d4ff] flex items-center justify-center glow-cyan-sm group-hover:glow-cyan transition-all">
                   {s.icon}
                 </div>
               </div>
               <div>
-                <div className="text-xs font-bold text-violet-400 uppercase tracking-widest mb-1">Step {s.step}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+                <div className="text-xs font-bold text-[#00d4ff]/60 uppercase tracking-widest mb-1">Step {s.step}</div>
+                <h3 className="text-lg font-semibold text-[#f0f0ff] mb-2">{s.title}</h3>
+                <p className="text-sm text-[#a0a0b8] leading-relaxed">{s.desc}</p>
               </div>
             </div>
           ))}

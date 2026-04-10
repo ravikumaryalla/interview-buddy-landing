@@ -1,196 +1,137 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { config } from '../config';
 
-const plans = [
+const packs = [
   {
-    name: 'Free',
-    price: '₹0',
-    period: 'forever',
-    desc: 'Perfect for getting started and exploring the platform.',
+    name: 'Starter Pack',
+    credits: config.pricing.starterCredits,
+    price: config.pricing.starterPrice,
+    perCredit: (Number(config.pricing.starterPrice) / Number(config.pricing.starterCredits)).toFixed(2),
+    desc: 'Try it in your next interview.',
     features: [
-      '5 mock interview sessions/month',
-      'Basic AI feedback',
-      'Resume upload (1 resume)',
-      'Access to common questions bank',
-      'Email support',
+      `${config.pricing.starterCredits} minutes of live AI assistance`,
+      'Works on all interview platforms',
+      'Full stealth mode',
+      'Credits never expire',
     ],
-    missing: [
-      'Real-time AI suggestions',
-      'Performance analytics',
-      'Priority support',
-    ],
-    cta: 'Get Started Free',
     highlighted: false,
     badge: null,
+    ctaLabel: 'Buy Starter Pack',
   },
   {
-    name: 'Pro',
-    price: `₹${config.pricing.pro}`,
-    period: '/month',
-    desc: 'For active job seekers who want a real competitive edge.',
+    name: 'Pro Pack',
+    credits: config.pricing.proCredits,
+    price: config.pricing.proPrice,
+    perCredit: (Number(config.pricing.proPrice) / Number(config.pricing.proCredits)).toFixed(2),
+    desc: 'Perfect for an active job search.',
     features: [
-      'Unlimited mock interview sessions',
-      'Real-time AI suggestions',
-      'Detailed feedback reports',
-      'Resume-based question generation',
-      'Behavioral + technical prep',
-      'Performance analytics dashboard',
-      'Priority email support',
+      `${config.pricing.proCredits} minutes of live AI assistance`,
+      'Best value for multi-round interviews',
+      'Works on all interview platforms',
+      'Full stealth mode',
+      'Credits never expire',
     ],
-    missing: [],
-    cta: 'Start Pro Trial',
     highlighted: true,
     badge: 'Most Popular',
+    ctaLabel: 'Buy Pro Pack',
   },
   {
-    name: 'Premium',
-    price: `₹${config.pricing.premium}`,
-    period: '/month',
-    desc: 'For professionals targeting top-tier companies and roles.',
+    name: 'Elite Pack',
+    credits: config.pricing.eliteCredits,
+    price: config.pricing.elitePrice,
+    perCredit: (Number(config.pricing.elitePrice) / Number(config.pricing.eliteCredits)).toFixed(2),
+    desc: 'For serious candidates targeting top companies.',
     features: [
-      'Everything in Pro',
-      'Company-specific interview prep',
-      'Unlimited resume uploads',
-      'Advanced analytics & insights',
-      'FAANG-level question sets',
-      'Dedicated success manager',
-      '24/7 priority support',
+      `${config.pricing.eliteCredits} minutes of live AI assistance`,
+      'Lowest cost per minute',
+      'Works on all interview platforms',
+      'Full stealth mode',
+      'Credits never expire',
+      'Priority support',
     ],
-    missing: [],
-    cta: 'Start Premium Trial',
     highlighted: false,
     badge: 'Best Value',
+    ctaLabel: 'Buy Elite Pack',
   },
 ];
 
-function CheckIcon() {
+function CheckIcon({ highlighted }: { highlighted: boolean }) {
   return (
-    <svg className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+    <svg className={`w-4 h-4 flex-shrink-0 mt-0.5 ${highlighted ? 'text-[#0a0a0f]' : 'text-[#00d4ff]'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
     </svg>
   );
 }
 
-function XIcon() {
-  return (
-    <svg className="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  );
-}
-
 export default function Pricing() {
-  const [annual, setAnnual] = useState(false);
-
-  const discountMultiplier = 1 - config.pricing.annualDiscount / 100;
-
-  function displayPrice(plan: typeof plans[0]) {
-    if (plan.price === '₹0') return plan.price;
-    const base = parseInt(plan.price.replace('₹', ''));
-    if (annual) {
-      return `₹${Math.round(base * discountMultiplier)}`;
-    }
-    return plan.price;
-  }
-
   return (
-    <section id="pricing" className="py-20 sm:py-28 bg-gray-50">
+    <section id="pricing" className="py-20 sm:py-28 bg-[#0f0f17]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">Pricing</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
-            Simple, transparent pricing
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#00d4ff] mb-3">Pricing</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#f0f0ff] tracking-tight">
+            Pay only for what you{' '}
+            <span className="gradient-text">actually use</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
-            No hidden charges. Cancel anytime. Secure payments via trusted providers.
+          <p className="mt-4 text-lg text-[#a0a0b8] max-w-xl mx-auto">
+            {config.pricing.creditDefinition}. No subscriptions, no auto-renewals.
           </p>
-
-          {/* Annual toggle */}
-          <div className="mt-6 inline-flex items-center gap-3 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm">
-            <span className={`text-sm font-medium transition-colors ${!annual ? 'text-gray-900' : 'text-gray-400'}`}>Monthly</span>
-            <button
-              onClick={() => setAnnual(!annual)}
-              className={`relative w-10 h-6 rounded-full transition-colors ${annual ? 'bg-violet-600' : 'bg-gray-200'}`}
-              aria-label="Toggle annual billing"
-            >
-              <span
-                className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${annual ? 'translate-x-4' : ''}`}
-              />
-            </button>
-            <span className={`text-sm font-medium transition-colors ${annual ? 'text-gray-900' : 'text-gray-400'}`}>
-              Annual <span className="text-emerald-600 font-semibold">–{config.pricing.annualDiscount}%</span>
-            </span>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {plans.map((plan) => (
+          {packs.map((pack) => (
             <div
-              key={plan.name}
+              key={pack.name}
               className={`relative rounded-2xl flex flex-col ${
-                plan.highlighted
-                  ? 'bg-gradient-to-br from-violet-600 to-indigo-600 text-white shadow-2xl shadow-violet-200 scale-105 z-10'
-                  : 'bg-white border border-gray-100 shadow-sm'
+                pack.highlighted
+                  ? 'bg-gradient-to-br from-[#00d4ff] to-[#8b5cf6] glow-cyan scale-105 z-10'
+                  : 'glass-card'
               }`}
             >
-              {plan.badge && (
+              {pack.badge && (
                 <div className={`absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full ${
-                  plan.highlighted ? 'bg-white text-violet-700' : 'bg-violet-600 text-white'
+                  pack.highlighted
+                    ? 'bg-[#0a0a0f] text-[#00d4ff]'
+                    : 'bg-[#8b5cf6] text-white'
                 }`}>
-                  {plan.badge}
+                  {pack.badge}
                 </div>
               )}
 
               <div className="p-7 flex flex-col gap-5 flex-1">
                 <div>
-                  <p className={`text-xs font-semibold uppercase tracking-widest mb-1 ${plan.highlighted ? 'text-violet-200' : 'text-violet-600'}`}>
-                    {plan.name}
+                  <p className={`text-xs font-bold uppercase tracking-widest mb-1 ${pack.highlighted ? 'text-[#0a0a0f]/70' : 'text-[#00d4ff]'}`}>
+                    {pack.name}
                   </p>
                   <div className="flex items-end gap-1">
-                    <span className={`text-4xl font-bold ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
-                      {displayPrice(plan)}
+                    <span className={`text-4xl font-bold ${pack.highlighted ? 'text-[#0a0a0f]' : 'text-[#f0f0ff]'}`}>
+                      ₹{pack.price}
                     </span>
-                    <span className={`text-sm mb-1 ${plan.highlighted ? 'text-violet-200' : 'text-gray-500'}`}>{plan.period}</span>
                   </div>
-                  {annual && plan.price !== '₹0' && (
-                    <p className={`text-xs mt-1 ${plan.highlighted ? 'text-violet-200' : 'text-gray-500'}`}>
-                      Billed annually · Save 20%
-                    </p>
-                  )}
-                  <p className={`text-sm mt-2 ${plan.highlighted ? 'text-violet-100' : 'text-gray-600'}`}>{plan.desc}</p>
+                  <p className={`text-sm mt-1 ${pack.highlighted ? 'text-[#0a0a0f]/60' : 'text-[#606078]'}`}>
+                    {pack.credits} credits · ₹{pack.perCredit}/min
+                  </p>
+                  <p className={`text-sm mt-2 ${pack.highlighted ? 'text-[#0a0a0f]/80' : 'text-[#a0a0b8]'}`}>{pack.desc}</p>
                 </div>
 
                 <ul className="space-y-2.5 flex-1">
-                  {plan.features.map((f) => (
+                  {pack.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5">
-                      {plan.highlighted ? (
-                        <svg className="w-4 h-4 text-violet-200 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                      ) : (
-                        <CheckIcon />
-                      )}
-                      <span className={`text-sm ${plan.highlighted ? 'text-violet-100' : 'text-gray-700'}`}>{f}</span>
-                    </li>
-                  ))}
-                  {plan.missing.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <XIcon />
-                      <span className="text-sm text-gray-400">{f}</span>
+                      <CheckIcon highlighted={pack.highlighted} />
+                      <span className={`text-sm ${pack.highlighted ? 'text-[#0a0a0f]' : 'text-[#a0a0b8]'}`}>{f}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Link
                   to="/login"
-                  className={`mt-auto block text-center font-semibold text-sm py-3 rounded-xl transition-all ${
-                    plan.highlighted
-                      ? 'bg-white text-violet-700 hover:bg-violet-50 shadow-lg'
-                      : 'bg-violet-600 hover:bg-violet-700 text-white shadow-sm shadow-violet-100'
+                  className={`mt-auto block text-center font-bold text-sm py-3 rounded-xl transition-all ${
+                    pack.highlighted
+                      ? 'bg-[#0a0a0f] text-[#00d4ff] hover:bg-[#0f0f17] shadow-lg'
+                      : 'bg-[#00d4ff]/10 border border-[#00d4ff]/30 text-[#00d4ff] hover:bg-[#00d4ff]/20'
                   }`}
                 >
-                  {plan.cta}
+                  {pack.ctaLabel}
                 </Link>
               </div>
             </div>
@@ -198,16 +139,16 @@ export default function Pricing() {
         </div>
 
         {/* Guarantees */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-[#606078]">
           {[
-            { icon: '✓', text: 'Cancel anytime, no questions asked' },
-            { icon: '✓', text: 'No hidden charges or auto-renewals without consent' },
-            { icon: '✓', text: 'Secure payments via trusted payment providers' },
-            { icon: '✓', text: '7-day money-back guarantee on paid plans' },
+            'Credits never expire',
+            'Secure payments via Cashfree',
+            '7-day refund on first purchase',
+            'No auto-renewals',
           ].map((g) => (
-            <div key={g.text} className="flex items-center gap-2">
-              <span className="text-emerald-500 font-bold">{g.icon}</span>
-              {g.text}
+            <div key={g} className="flex items-center gap-2">
+              <span className="text-[#00d4ff] font-bold">✓</span>
+              {g}
             </div>
           ))}
         </div>
